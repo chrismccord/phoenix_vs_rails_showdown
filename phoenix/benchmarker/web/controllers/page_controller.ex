@@ -1,8 +1,10 @@
-defmodule Benchmarker.Controllers.Pages do
+defmodule Benchmarker.PageController do
   use Phoenix.Controller
 
-  def index(conn, %{"title" => title}) do
-    render conn, "index", title: title, members: [
+  plug :action
+
+  def index(conn, %{"title" => _title}) do
+    render conn, "index.html", title: title, members: [
       %{name: "Chris McCord"},
       %{name: "Matt Sears"},
       %{name: "David Stump"},
